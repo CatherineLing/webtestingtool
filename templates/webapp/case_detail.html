@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+<center>
+<form method="post" action="" enctype="multipart/form-data">{% csrf_token %}  
+<table border="0" align="center">
+{{ form.as_table }}
+</table>
+
+<input name="Execute" type="submit"> 
+</form>
+</center>
+
+{% endblock %}
+
+
+

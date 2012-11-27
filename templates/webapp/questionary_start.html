@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>Start a new questionary</h1>
+<form method="post" action="">{%csrf_token%}
+<input type="submit"/>
+</form>
+
+{% endblock %}

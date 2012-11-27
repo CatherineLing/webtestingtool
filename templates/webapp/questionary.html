@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<p>Are they same?</p>
+
+<form method="post" action="">{%csrf_token%}
+<input type="radio" name="result" value="True">Yes, they are same.<br>
+<input type="radio" name="result" value="False">No, they are different.<br>
+<input type="hidden" name="step1_id" value="{{step1.id}}"/>
+<input type="hidden" name="step2_id" value="{{step2.id}}"/>
+<input type="hidden" name="expected_result" value="{{expected_result}}"/>
+<input type="submit">
+</form>
+
+<div style="height:600px;width:800px;overflow:scroll;"><img src = "{{step1.picture}}" border="0"/></div>
+<div style="height:600px;width:800px;overflow:scroll;"><img src = "{{step2.picture}}" border="0"/></div>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load i18n %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{% trans "Web Testing Tool" %}</title>
+</head>
+<body>
+
+{% if messages %}
+<ul class="messages">
+{% for message in messages %}
+	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<div>
+<a href="{% url case_list %}">Case List</a>
+<a href="{% url questionary_start %}">Questionary</a>
+</div>
+{% block content %}
+{% endblock %}
+                
+</body>
+</html>

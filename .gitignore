@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+
+media
+records
+
+sqlite.db
+*.png
+

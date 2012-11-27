@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<center>
+<form method="post" action="">{% csrf_token %}
+<table width = "80%" border="1">
+    <tr>
+    	<th align="center">{% trans "Step" %}</th>
+    	{% for init, browser in browser_choices%}
+   	    	<th align="center">{{browser}}</th>
+   	    {% endfor %}
+   	    <th align="center">Similarity</th>
+    </tr>
+{%for num, step, sim in steps%}
+	<tr>
+		<td align="center">{{num|add:"1"}}<br/> <input type="checkbox" name="save_{{num}}" value="Save" checked="yes"/>Save</td>
+		{% for browser, thestep in step%}		
+			<td align="center"><div style="height:300px;width:400px;overflow:scroll;"><img src = "{{thestep.picture}}" border="0"/><br/></div></td>
+		{% endfor %}
+		<td>{{sim|yesno:"Same,Different,Not sure"}}</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		{% for browser, thestep in step%}		
+			<td align="center">Note:<input type="text" name="{{browser}}notes_{{num}}" value="{{thestep.notes|default_if_none:""}}" maxlength="300" /></td>
+		{% endfor %}
+		<td>&nbsp;</td>
+	</tr>
+{%endfor%}    
+</table>
+
+<input name="save" value="Save" type="submit"/>
+</form>
+</center>
+
+
+{% endblock %}

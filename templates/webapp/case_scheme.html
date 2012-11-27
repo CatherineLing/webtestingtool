@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+<center>
+<table border="1" align="center" width="50%">
+<tr>
+<th>Command</th>
+<th>Param1</th>
+<th>Param2</th>
+</tr>
+{% for cmd, param1, param2 in script %}
+<tr>
+	<td width="33%" align="center">{{ cmd }}</td>
+	<td width="33%" align="center">{{ param1 }}</td>
+	<td width="33%" align="center">{{ param2 }}</td>
+</tr>
+{% endfor %}
+
+</table>
+</center>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<center>
+<table width = "80%" border="1">
+    <tr class="row0">
+   	    <th align="center"></th>
+   	    <th align="center">Status</th>
+   	    <th align="center">Operations</th>
+    </tr>
+	{% for case in cases %}
+    <tr class="{% cycle 'row1' 'row2' %}">
+    	<td align="center">{{ case.url }}</td>
+    	<td align="center">{{ case.state }}</td>
+    	<td align="center">
+    		<a href="{%url case_detail case.id %}">Edit</a> 
+    		<a href="{%url case_result case.id %}">Show result</a>
+    		<a href="{%url case_delete case.id %}">Delete</a>
+    	</td>
+    </tr>
+	{% endfor %}
+</table>
+<a href="{%url case_detail 0%}">Create a new case</a>
+</center>
+<!--<script>setTimeout("location.href=''",2000)</script>-->
+
+{% endblock %}
