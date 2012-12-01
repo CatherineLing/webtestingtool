@@ -10,7 +10,7 @@ from webtestingtool.settings import MEDIA_ROOT
 from webapp.models import Task, Step
 from celery.exceptions import SoftTimeLimitExceeded
 
-@celery.task(soft_time_limit=60, name='webapp.tasks.runscript')
+@celery.task(soft_time_limit=90, name='webapp.tasks.runscript')
 def runscript(case, browser, url, scripts):
     sel = None
     try:
@@ -18,7 +18,7 @@ def runscript(case, browser, url, scripts):
             browser_full = "*firefox"
         elif browser == "C":
 #            browser_full = r"*googlechrome C:\Program Files\Google\Chrome\Application\chrome.exe"
-            browser_full = r"*googlechrome"
+            browser_full = "*googlechrome"
         elif browser == "S":
             browser_full = "*safari"
         elif browser == "O":

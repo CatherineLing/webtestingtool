@@ -144,6 +144,8 @@ def case_detail(request, case_id):
 
             case.task_num = 0
 
+            case.save()
+            
             if request.POST.get('use_firefox', False):
                 result = runscript.delay(case, "F", case.url, script)
                 case.task_num += 1
