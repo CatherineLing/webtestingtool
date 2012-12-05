@@ -24,7 +24,7 @@ def runscript(case, browser, url, scripts):
         elif browser == "O":
             browser_full = "*opera"
         elif browser == "I":
-            browser_full = "*iexplore"
+            browser_full = "*iexploreproxy"
             
         print "Browser:", browser_full
     

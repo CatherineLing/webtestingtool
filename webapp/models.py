@@ -17,7 +17,7 @@ class Task(models.Model):
 #        ('S', 'Safari'),
 #        ('A', 'Camino'),
 #        ('O', 'Opera'),
-#        ('I', 'IE'),
+        ('I', 'IE'),
     )
     
     case = models.ForeignKey(Case)

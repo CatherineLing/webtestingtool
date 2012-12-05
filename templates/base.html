@@ -4,24 +4,48 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>{% trans "Web Testing Tool" %}</title>
+    <title>{% trans "Webtestingtool" %}</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="en" />
+    <link href="{{ STATIC_URL }}webapp/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
-{% if messages %}
-<ul class="messages">
-{% for message in messages %}
-	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-{% endfor %}
-</ul>
-{% endif %}
-
-<div>
-<a href="{% url case_list %}">Case List</a>
-<a href="{% url questionary_start %}">Questionary</a>
-</div>
-{% block content %}
-{% endblock %}
-                
+    <div id="header">
+        <a href="#"><img id="logo" src="{{ STATIC_URL }}webapp/images/logo.gif" alt="" /></a> 
+        <div id="menu">
+            <ul>
+              <li><a href="{% url case_list %}">Case List</a></li>
+              <li>|<a href="{% url questionary_start %}">Questionary</a></a></li>
+              <li>|<a href="#">{% trans "About" %}</a></li>
+              <li>|<a href="#">{% trans "Contact" %}</a></li>
+            </ul>
+        </div>
+        <h1>{% trans "Webtestingtool" %}</h1>
+		<p id="subtitle"></p>
+    </div><!-- header -->
+    <div id="main">
+    	<div id="main2">	
+            <div id="content">			
+                <div class="post">
+                	{% if messages %}
+					<ul class="messages">
+					    {% for message in messages %}
+					    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+					    {% endfor %}
+					</ul>
+					{% endif %}
+                	{% block content %}
+                    {% endblock %}
+                    
+                </div>				              
+            </div><!-- content -->                    
+            <div class="clearing">&nbsp;</div>   
+    </div></div>
+    <div id="footer">
+      <p>{% trans "Copyright"%} &copy; 2012, {% blocktrans %} designed by Cathering Ling {% endblocktrans %}</p>
+      <p>Powered by Django</p>
+    </div>
 </body>
 </html>

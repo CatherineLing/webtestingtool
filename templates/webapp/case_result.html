@@ -3,7 +3,6 @@
 
 {% block content %}
 
-<center>
 <form method="post" action="">{% csrf_token %}
 <table width = "80%" border="1">
     <tr>
@@ -17,7 +16,7 @@
 	<tr>
 		<td align="center">{{num|add:"1"}}<br/> <input type="checkbox" name="save_{{num}}" value="Save" checked="yes"/>Save</td>
 		{% for browser, thestep in step%}		
-			<td align="center"><div style="height:300px;width:400px;overflow:scroll;"><img src = "{{thestep.picture}}" border="0"/><br/></div></td>
+			<td align="center"><div style="height:200px;width:270px;overflow:scroll;"><img src = "{{thestep.picture}}" border="0" width="300%" height="300%"/><br/></div></td>
 		{% endfor %}
 		<td>{{sim|yesno:"Same,Different,Not sure"}}</td>
 	</tr>
@@ -31,9 +30,11 @@
 {%endfor%}    
 </table>
 
+<p>
 <input name="save" value="Save" type="submit"/>
+</p>
 </form>
-</center>
+
 
 
 {% endblock %}

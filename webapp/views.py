@@ -33,7 +33,7 @@ class CaseForm(ModelForm):
 #    use_safari = forms.BooleanField(label = "Safari", initial = True, required = False)
 #    use_camino = forms.BooleanField(label = "Camino", initial = True, required = False)
 #    use_opera = forms.BooleanField(label = "Opera", initial = True, required = False)
-#    use_ie = forms.BooleanField(label = "IE", initial = True, required = False)
+    use_ie = forms.BooleanField(label = "IE", initial = True, required = False)
 
     class Meta:
         model = Case
